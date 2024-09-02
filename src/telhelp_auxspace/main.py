@@ -37,9 +37,9 @@ from . import (
 )
 
 
-def _main(args: argparse.Namespace) -> int:
+def _telhelp(args: argparse.Namespace) -> int:
     """
-    Main entrypoint for the timestamp updater.
+    Main entrypoint for the timestamp updater with parsed commandline args.
 
     Args:
       args (argparse.Namespace): Parsed commandline arguments
@@ -87,7 +87,14 @@ def _main(args: argparse.Namespace) -> int:
 
 
 def main() -> int:
-    return _main(get_argv())
+    """
+    Main entrypoint for the timestamp updater,
+    parsing arguments and starting telhelp.
+
+    Returns:
+        int: program exit code
+    """
+    return _telhelp(get_argv())
 
 
 if __name__ == "__main__":
