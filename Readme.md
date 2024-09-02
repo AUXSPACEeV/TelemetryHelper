@@ -90,13 +90,13 @@ To only use this funciton without converting timestamps, either set
 `--timebase 0` or `--show-only`:
 
 ```bash
-python3 ./tsupdater.py --show-only <DATA_FILE>
+telhelp --show-only <DATA_FILE>
 ```
 
 The plotter function is enabled by default, disable it via `--no-show`.
 
 ```bash
-python3 ./tsupdater.py --no-show [<OTHER_OPTIONS>] <DATA_FILE>
+telhelp --no-show [<OTHER_OPTIONS>] <DATA_FILE>
 ```
 
 ## Data Formatter
@@ -112,7 +112,7 @@ use `--timebase 0`, which lets the timestamps untouched:
 
 ```bash
 # Example for only updating the data format without timestamp conversion
-python3 ./tsupdater.py \
+telhelp \
     --no-show \
     --timebase 0 \
     --output ~/Documents/METER-1-launch.csv \
