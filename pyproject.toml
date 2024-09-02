@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "telhelp_auxspace"
+version = "0.1.0"
+authors = [
+  { name="Maximilian Stephan", email="stephan.maxi@icloud.com" },
+]
+description = "InfluxDB Line Protocol timestamp updater, plotter and formatter for Auxspace telemetry data."
+readme = "Readme.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/AUXSPACEeV/TelemetryHelper"
+Issues = "https://github.com/AUXSPACEeV/TelemetryHelper/issues"
+
+[project.scripts]
+telhelp = "telhelp_auxspace.main:main"

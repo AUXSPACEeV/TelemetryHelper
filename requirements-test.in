@@ -1,0 +1,4 @@
+matplotlib==3.9.2
+build==1.2.1
+
+pip-tools==7.4.1
