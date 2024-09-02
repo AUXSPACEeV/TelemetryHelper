@@ -17,9 +17,6 @@ class DataFormat(Enum):
     csv = "csv"
     multi_csv = "multi-csv"
     influxdb_lines = "influxdb-lines"
-
-    def __str__(self):
-        return self.value
     
     @staticmethod
     def _convert_json(_lines: list[str]) -> dict[str, dict[str, list[dict[str, Any]]]]:
@@ -92,8 +89,23 @@ class DataFormat(Enum):
         Returns:
             list[dict[str, Any]]: JSONL syntaxed line data list. E.g:
                 [
-                    {"measurement": "dps310", "fields": {"pressure": 972.715, "temp": 35.769}, "timestamp": 1725197542829},
-                    {"measurement": "bno08x", "fields": {"accel_z": 0.304688, "accel_x": 0.496094, "accel_y": -9.72656}, "timestamp": 1725197542920}
+                    {
+                        "measurement": "dps310",
+                        "fields": {
+                            "pressure": 972.715,
+                            "temp": 35.769,
+                        },
+                        "timestamp": 1725197542829,
+                    },
+                    {
+                        "measurement": "bno08x",
+                        "fields": {
+                            "accel_z": 0.304688,
+                            "accel_x": 0.496094,
+                            "accel_y": -9.72656,
+                        },
+                        "timestamp": 1725197542920,
+                    },
                 ]
         """
         output: list[dict[str, Any]] = []
@@ -155,6 +167,7 @@ class DataFormat(Enum):
             output.append(f'{data},{line["timestamp"]}')
         return output
 
+    @staticmethod
     def _convert_csv_multiline(_lines: list[str]):
         """Convert the data structure from InfluxDB Lines into CSV syntax.
 
@@ -208,6 +221,9 @@ class DataFormat(Enum):
             case _:
                 print(f"DataFormat {self} is not known.")
         return output
+
+    def __str__(self):
+        return self.value
 
 
 def __influxdb_line2csv_like_json(_lines: list[str]) -> dict[str, list[str]]:
