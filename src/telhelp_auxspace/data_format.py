@@ -1,3 +1,11 @@
+# data_format.py
+# 
+# Data formats and conversion functions.
+#
+#  created 02 Sep 2024
+#  by Maximilian Stephan for Auxspace eV.
+#
+
 from enum import Enum
 from typing import Any, Iterable, Optional
 

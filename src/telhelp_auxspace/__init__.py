@@ -1,3 +1,11 @@
+# telhelp_auxspace
+#
+# Common variables, classes and functions.
+#
+#  created 02 Sep 2024
+#  by Maximilian Stephan for Auxspace eV.
+#
+
 # Symbol to set output to STDOUT instead of a file.
 # This can be used by the user as an argument.
 STDOUT_OUTPUT_SYMBOL: str = '-'

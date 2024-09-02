@@ -1,3 +1,11 @@
+# plot.py
+# 
+# Matplotlib plotting functions.
+#
+#  created 02 Sep 2024
+#  by Maximilian Stephan for Auxspace eV.
+#
+
 import math
 import matplotlib.pyplot as plt
 

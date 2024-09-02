@@ -1,27 +1,12 @@
-#!/usr/bin/env python3
-#
 # tsupdater.py
-#
-# Auxspace METER telemetry timeseries updater
-#
-# Simple Python program that converts the relative timestamps
-# From the collected telemetry data to absolute ones.
-#
-# In addition, this can be used as a plotter for the data as well.
-#
-# The format:
-#   Incoming data has to be in the InfluxDB Line protocol format
-#   <https://docs.influxdata.com/influxdb/cloud/reference/syntax/line-protocol/>
-#   (see telemetry project's "data.txt")
-#
-#   <measurement>[,<tag_key>=<tag_value>[,<tag_key>=<tag_value>]] <field_key>=<field_value>[,<field_key>=<field_value>] [<timestamp>]
+# 
+# Timeseries updating tools.
 #
 #  created  19 Jul 2024
 #  by Maximilian Stephan for Auxspace eV.
 #
 
 import json
-import math
 import time
 
 from datetime import datetime

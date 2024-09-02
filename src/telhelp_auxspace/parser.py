@@ -1,3 +1,11 @@
+# parser.py
+# 
+# Functions for argument parsing from the commandline.
+#
+#  created 02 Sep 2024
+#  by Maximilian Stephan for Auxspace eV.
+#
+
 import argparse
 
 from pathlib import Path

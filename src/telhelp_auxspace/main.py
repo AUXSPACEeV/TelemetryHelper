@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# telhelp_auxspace
+# telhelp_auxspace main.py
 #
 # InfluxDB Line Protocol timestamp updater,
 # plotter and formatter for Auxspace telemetry data.

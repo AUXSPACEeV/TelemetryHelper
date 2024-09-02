@@ -12,8 +12,8 @@ description = "InfluxDB Line Protocol timestamp updater, plotter and formatter f
 readme = "Readme.md"
 requires-python = ">=3.12"
 classifiers = [
-    "Programming Language :: Python :: 3",
-    "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
 ]
 
 [project.urls]
