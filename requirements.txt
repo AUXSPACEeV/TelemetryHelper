@@ -19,6 +19,10 @@ fonttools==4.53.1
 kiwisolver==1.4.5
     # via matplotlib
 matplotlib==3.10.8
+    # via
+    #   -r requirements.in
+    #   mplcursors
+mplcursors==0.6
     # via -r requirements.in
 numpy==2.4.4
     # via
