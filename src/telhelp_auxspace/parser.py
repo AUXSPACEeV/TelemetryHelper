@@ -58,6 +58,28 @@ def get_argv() -> argparse.Namespace:
         help="Do not show data. Conflicts with --show-only."
     )
     parser.add_argument(
+        "--audit",
+        type=Path,
+        default=None,
+        help="Path to a state-machine audit log. When given, telemetry is split "
+        "into per-flight figures (BOOST → IDLE/LANDED) with vertical state markers.",
+    )
+    parser.add_argument(
+        "--pre-boost",
+        type=float,
+        default=5.0,
+        help="Seconds of telemetry to include before each BOOST transition "
+        "(default: 5). Set to 0 to start exactly at BOOST.",
+    )
+    parser.add_argument(
+        "--idle-timeout",
+        type=float,
+        default=None,
+        help="When a flight ends via IDLE (timeout, not LANDED), truncate the "
+        "flight window to at most this many seconds after the last non-IDLE "
+        "transition. Avoids long, empty tails dominating the plot.",
+    )
+    parser.add_argument(
         "-o",
         "--output-file",
         type=str,

@@ -123,7 +123,7 @@ def update_timeseries(
     timebase: Optional[int] = None,
     in_place: bool = False,
     data_format: DataFormat = DataFormat.influxdb_lines,
-) -> list[str]:
+) -> tuple[list[str], int]:
     """
     Update the timeseries Data from input_file using timebase and put the output into output_files.
 
@@ -138,7 +138,8 @@ def update_timeseries(
             Defaults to DataFormat.influxdb-lines
 
     Returns:
-        list[str]: Converted InfluxDB Lines.
+        tuple[list[str], int]: Converted InfluxDB Lines and the timebase (ms)
+            that was used to shift relative timestamps.
     """
     orig_timeseries: list[str] = []
     updated_timeseries_lines: list[str] = []
@@ -189,4 +190,4 @@ def update_timeseries(
         print(f"Oldest stamp is {earliest_stamp_abs} ({datetime.fromtimestamp(earliest_stamp_abs / 1_000)})")
         print(f"Newest stamp is {latest_stamp_abs} ({datetime.fromtimestamp(latest_stamp_abs / 1_000)})")
 
-    return updated_timeseries_lines
+    return updated_timeseries_lines, int(timebase)

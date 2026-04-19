@@ -27,8 +27,9 @@ import sys
 from pathlib import Path
 from typing import Union
 
+from telhelp_auxspace.audit import find_flights, parse_audit, shift_audit
 from telhelp_auxspace.parser import get_argv
-from telhelp_auxspace.plot import plot_data
+from telhelp_auxspace.plot import plot_data, plot_flights
 from telhelp_auxspace.tsupdater import (
     update_timeseries, get_earliest_and_latest_stamp
 )
@@ -50,6 +51,7 @@ def _telhelp(args: argparse.Namespace) -> int:
     input_file: Path = args.input_file
     output_files: list[Union[Path, str]] = []
     lines: list[str] = []
+    timebase: int = args.timebase or 0
 
     if args.show_only and args.no_show:
         print("--show-only and --no-show are conflicting options. Choose one.")
@@ -72,7 +74,7 @@ def _telhelp(args: argparse.Namespace) -> int:
             lines = [line for line in datafile.read().splitlines() if line]
     else:
         # But if the option is not specified, update all timeseries data
-        lines = update_timeseries(
+        lines, timebase = update_timeseries(
             input_file, output_files, args.timebase, args.in_place, args.data_format,
         )
     if not args.no_show:
@@ -82,7 +84,27 @@ def _telhelp(args: argparse.Namespace) -> int:
         date_format = (
             '%H:%M:%S' if latest_stamp - earliest_stamp <= PRINT_SECONDS_THRESHHOLD else '%H:%M'
         )
-        plot_data(lines, date_format)
+        if args.audit:
+            audit_entries = parse_audit(args.audit)
+            if args.show_only and not args.timebase:
+                print(
+                    "--audit with --show-only requires --timebase so the audit "
+                    "timestamps can be aligned with the (already absolute) telemetry."
+                )
+                return 1
+            audit_abs = shift_audit(audit_entries, timebase)
+            idle_timeout_ms = (
+                int(args.idle_timeout * 1_000) if args.idle_timeout is not None else None
+            )
+            pre_boost_ms = int(args.pre_boost * 1_000)
+            flights = find_flights(
+                audit_abs,
+                idle_timeout_ms=idle_timeout_ms,
+                pre_boost_ms=pre_boost_ms,
+            )
+            plot_flights(lines, flights, date_format)
+        else:
+            plot_data(lines, date_format)
     return 0
 
 
