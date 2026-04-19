@@ -1,0 +1,47 @@
+Time (ms)    Type         From         To / Event  
+--------------------------------------------------289          event        IDLE         state machine initialized
+545930       transition   IDLE         ARMED
+547035       event        ARMED        orientation below threshold
+547043       transition   ARMED        IDLE
+547404       transition   IDLE         ARMED
+565321       event        ARMED        orientation below threshold
+565326       transition   ARMED        IDLE
+614552       transition   IDLE         ARMED
+615411       event        ARMED        orientation below threshold
+615419       transition   ARMED        IDLE
+616659       transition   IDLE         ARMED
+617641       event        ARMED        orientation below threshold
+617648       transition   ARMED        IDLE
+648874       transition   IDLE         ARMED
+653251       event        ARMED        orientation below threshold
+653261       transition   ARMED        IDLE
+660308       transition   IDLE         ARMED
+660516       event        ARMED        orientation below threshold
+660529       transition   ARMED        IDLE
+867884       transition   IDLE         ARMED
+871157       event        ARMED        orientation below threshold
+871166       transition   ARMED        IDLE
+948642       transition   IDLE         ARMED
+1383080      transition   ARMED        BOOST
+1383305      transition   BOOST        BURNOUT
+1386802      transition   BURNOUT      APOGEE
+1387622      transition   APOGEE       MAIN
+1607269      transition   MAIN         IDLE
+1972310      transition   IDLE         ARMED
+1972798      event        ARMED        orientation below threshold
+1972804      transition   ARMED        IDLE
+1973166      transition   IDLE         ARMED
+1985050      event        ARMED        orientation below threshold
+1985058      transition   ARMED        IDLE
+1985234      transition   IDLE         ARMED
+1985806      event        ARMED        orientation below threshold
+1985815      transition   ARMED        IDLE
+2150410      transition   IDLE         ARMED
+2228389      event        ARMED        orientation below threshold
+2228395      transition   ARMED        IDLE
+2231048      transition   IDLE         ARMED
+2559623      transition   ARMED        BOOST
+2559684      transition   BOOST        BURNOUT
+2563182      transition   BURNOUT      APOGEE
+2563652      transition   APOGEE       MAIN
+2741701      transition   MAIN         IDLE
