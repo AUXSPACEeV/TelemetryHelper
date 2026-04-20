@@ -2,6 +2,11 @@
 
 > InfluxDB Line Protocol timestamp updater, plotter and formatter for Auxspace telemetry data.
 
+## :warning: DISCLAIMER
+
+This project is `DEPRECATED` and has migrated to
+[AURORA](https://github.com/AUXSPACEeV/aurora).
+
 ## General Info
 
 This python program updates the relative timestamps from the telemetry
